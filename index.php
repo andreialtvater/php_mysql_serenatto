@@ -4,10 +4,10 @@ require "Database/DB.php";
 require "src/Model/Product.php";
 require "src/Repository/RepositoryProduct.php";
 
-$repositoryProducts = new RepositoryProduct($db);
+$repositoryProducts = new RepositoryProduct();
 $coffeData = $repositoryProducts->coffeeOptions();
 
-$repositoryProducts = new RepositoryProduct($db);
+$repositoryProducts = new RepositoryProduct();
 $lunchData = $repositoryProducts->lunchOptions();
 
 ?>
