@@ -41,6 +41,19 @@ class RepositoryProduct
     {
         return $this->findByType('Almoço');
     }
+
+    private function selectAllProducts(): array
+    {
+        $sql = "SELECT * FROM produtos ORDER BY price";
+        $statement = $this->db->prepare($sql);
+        $statement->execute();
+
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return array_map([$this, 'formObjects'], $rows);
+    }
+
+    public function getAllProducts(): array
+    {
+        return $this->selectAllProducts();
+    }
 }
-
-

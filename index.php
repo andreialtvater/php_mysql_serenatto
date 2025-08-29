@@ -5,10 +5,9 @@ require "src/Model/Product.php";
 require "src/Repository/RepositoryProduct.php";
 
 $repositoryProducts = new RepositoryProduct();
-$coffeeData = $repositoryProducts->coffeeOptions();
 
-$repositoryProducts = new RepositoryProduct();
-$lunchData = $repositoryProducts->lunchOptions();
+$coffeeData = $repositoryProducts->coffeeOptions();
+$lunchData  = $repositoryProducts->lunchOptions();
 
 ?>
 
