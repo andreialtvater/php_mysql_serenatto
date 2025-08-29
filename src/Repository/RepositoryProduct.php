@@ -21,21 +21,26 @@ class RepositoryProduct
         );
     }
 
+    private function findByType(string $type): array
+    {
+        $sql = "SELECT * FROM produtos WHERE type = :type ORDER BY price";
+        $statement = $this->db->prepare($sql);
+        $statement->bindValue(':type', $type);
+        $statement->execute();
+
+        $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return array_map([$this, 'formObjects'], $rows);
+    }
+
     public function coffeeOptions(): array
     {
-        $sql = "SELECT * FROM produtos WHERE type = 'Café' ORDER BY price";
-        $statement = $this->db->query($sql);
-        $coffeeProducts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        return array_map([$this, 'formObjects'], $coffeeProducts);
+        return $this->findByType('Café');
     }
 
     public function lunchOptions(): array
     {
-        $sql = "SELECT * FROM produtos WHERE type = 'Almoço' ORDER BY price";
-        $statement = $this->db->query($sql);
-        $lunchProducts = $statement->fetchAll(PDO::FETCH_ASSOC);
-
-        return array_map([$this, 'formObjects'], $lunchProducts);
+        return $this->findByType('Almoço');
     }
 }
+
+
