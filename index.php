@@ -5,7 +5,7 @@ require "src/Model/Product.php";
 require "src/Repository/RepositoryProduct.php";
 
 $repositoryProducts = new RepositoryProduct();
-$coffeData = $repositoryProducts->coffeeOptions();
+$coffeeData = $repositoryProducts->coffeeOptions();
 
 $repositoryProducts = new RepositoryProduct();
 $lunchData = $repositoryProducts->lunchOptions();
@@ -42,7 +42,7 @@ $lunchData = $repositoryProducts->lunchOptions();
                 <img class= "ornaments" src="img/ornaments-coffee.png" alt="ornaments">
             </div>
             <div class="container-cafe-manha-produtos">
-                <?php foreach ($coffeData as $coffee):?>
+                <?php foreach ($coffeeData as $coffee):?>
                     <div class="container-produto">
                         <div class="container-foto">
                             <img src="<?= $coffee->getFormattedImage() ?>">
