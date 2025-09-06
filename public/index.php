@@ -1,8 +1,8 @@
 <?php
 
-require "Database/DB.php";
-require "src/Model/Product.php";
-require "src/Repository/RepositoryProduct.php";
+require "../src/Database/DB.php";
+require "../src/Model/Product.php";
+require "../src/Repository/RepositoryProduct.php";
 
 $repositoryProducts = new RepositoryProduct();
 
