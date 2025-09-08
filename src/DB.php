@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . '/../../defines.php';
+require_once __DIR__ . '/../defines.php';
 
 class DB
 {

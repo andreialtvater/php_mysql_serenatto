@@ -1,4 +1,4 @@
-INSERT INTO `serenatto`.`produtos` (`type`, `name`, `description`, `image`, `price`) VALUES
+INSERT INTO `serenatto`.`produtos` (`tipo`, `nome`, `descricao`, `imagem`, `preco`) VALUES
 ('Café', 'Café Cremoso', 'Café cremoso irresistivelmente suave e que envolve seu paladar.', 'cafe-cremoso.jpg', '5.00'),
 ('Café', 'Café com Leite', 'A harmonia perfeita do café e do leite, uma experiência reconfortante.', 'cafe-com-leite.jpg', '2.00'),
 ('Café', 'Cappuccino', 'Café suave, leite cremoso e uma pitada de sabor adocicado.', 'cappuccino.jpg', '7.00'),
