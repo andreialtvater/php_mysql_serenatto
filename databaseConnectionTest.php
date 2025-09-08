@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/src/Database/DB.php";
+require_once __DIR__ . "/src/DB.php";
 
 
 try {
