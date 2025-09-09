@@ -25,7 +25,7 @@ class Produto
         $this->preco = $preco;
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -55,6 +55,11 @@ class Produto
         return "img/" . $this->imagem;
     }
 
+    public function setImagem(string $imagem): void
+    {
+        $this->imagem = $imagem;
+    }
+
     public function getPreco(): float
     {
         return $this->preco;
@@ -62,6 +67,21 @@ class Produto
 
     public function getPrecoFormatado(): string
     {
-        return "R$ " . number_format($this->preco, 2);
+        return "R$ " . number_format($this->preco, 2, ',', '.');
     }
+
+    public function salvarImagem(): ?string
+    {
+        if (isset($_FILES['imagem']) && $_FILES['imagem']['error'] === UPLOAD_ERR_OK) {
+            $nomeArquivo = uniqid() . $_FILES['imagem']['name'];
+            $this->setImagem($nomeArquivo);
+
+            if (move_uploaded_file($_FILES['imagem']['tmp_name'], $this->getImagemDiretorio())) {
+                return $nomeArquivo;
+            }
+        }
+
+        return null; 
+    }
+
 }
